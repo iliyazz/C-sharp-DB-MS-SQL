@@ -1,0 +1,45 @@
+--04.Exercise: Databases Introduction
+--Exercise 16 Create SoftUni Database
+CREATE DATABASE SoftUni
+USE SoftUni
+
+CREATE TABLE Towns (
+Id INT IDENTITY(1,1) NOT NULL,
+[Name] NVARCHAR(100) NOT NULL
+)
+ALTER TABLE Towns
+ADD CONSTRAINT PK_Id  PRIMARY KEY (Id)
+
+CREATE TABLE [Addresses](
+Id INT IDENTITY(1,1) NOT NULL,
+AddressText NVARCHAR(100) NOT NULL,
+TownId INT
+)
+ALTER TABLE [Addresses]
+ADD CONSTRAINT PK_Addresses PRIMARY KEY(Id)
+
+ALTER TABLE [Addresses]
+ADD CONSTRAINT FK_Addresses_Towns FOREIGN KEY (TownId) REFERENCES Towns(Id)
+
+CREATE TABLE Departments (
+Id INT IDENTITY(1,1) NOT NULL,
+[Name] NVARCHAR(100) NOT NULL,
+
+CONSTRAINT PK_Departments PRIMARY KEY(Id)
+)
+
+CREATE TABLE Employees (
+Id INT IDENTITY(1,1),
+FirstName NVARCHAR(50) NOT NULL,
+MiddleName NVARCHAR(50) NOT NULL,
+LastName NVARCHAR(50) NOT NULL,
+JobTitle NVARCHAR(30) NOT NULL,
+DepartmentId INT,
+HireDate DATE NOT NULL,
+Salary DECIMAL(10,2) NOT NULL,
+AddressId INT,
+
+CONSTRAINT PK_Employees PRIMARY KEY(Id),
+CONSTRAINT FK_Employees_Departments FOREIGN KEY (DepartmentId) REFERENCES Departments(Id),
+CONSTRAINT FK_Employees_Addresses FOREIGN KEY (AddressId) REFERENCES Addresses(Id)
+)
