@@ -1,0 +1,50 @@
+--08.Table Relations
+--05.Online Store Database
+-- CREATE DATABASE Relations8_5
+-- USE Relations8_5
+
+
+CREATE TABLE ItemTypes(
+ItemTypeID INT PRIMARY KEY IDENTITY(1, 1),
+[Name] VARCHAR(50)
+)
+
+CREATE TABLE Items(
+ItemID INT PRIMARY KEY IDENTITY(1, 1),
+[Name] VARCHAR(50),
+ItemTypeID INT
+)
+
+ALTER TABLE Items
+ADD CONSTRAINT FK_Items_ItemTypes FOREIGN KEY (ItemTypeID) REFERENCES ItemTypes(ItemTypeID)
+
+CREATE TABLE Orders(
+OrderID INT PRIMARY KEY IDENTITY(1, 1),
+CustomerID INT
+)
+
+CREATE TABLE OrderItems(
+OrderID INT,
+ItemID INT,
+CONSTRAINT PK_OrderItems PRIMARY KEY(OrderID, ItemID),
+CONSTRAINT FK_OrderItems_Orders FOREIGN KEY(OrderID) REFERENCES Orders(OrderID),
+CONSTRAINT FK_OrderItems_Items FOREIGN KEY(ItemID) REFERENCES Items(ItemID)
+)
+
+CREATE TABLE Customers(
+CustOmerID INT PRIMARY KEY IDENTITY(1, 1),
+[Name] VARCHAR(50),
+Burthday DATETIME2,
+CityID INT
+)
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_Customers_Orders FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+
+CREATE TABLE Cities(
+CityID INT PRIMARY KEY IDENTITY(1, 1),
+[Name] VARCHAR(50),
+)
+
+ALTER TABLE Customers
+ADD CONSTRAINT FK_Customers_Cities FOREIGN KEY (CityID) REFERENCES Cities(CityID)
