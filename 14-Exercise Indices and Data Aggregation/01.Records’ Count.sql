@@ -3,3 +3,13 @@
 SELECT
        COUNT(*)
  FROM [WizzardDeposits]
+ --------------------------
+  ---------------
+SELECT TOP (1)
+           SUM([w].[Id])
+        AS [Count]
+      FROM [WizzardDeposits]
+        AS [w]
+  GROUP BY [Id]
+  ORDER BY [Id] DESC
+
