@@ -1,4 +1,4 @@
---13-Indices and Data Aggregation
+--14-Exercise Indices and Data Aggregation
 --02.Longest Magic Wand
 SELECT
        MAX([w].[MagicWandSize])
