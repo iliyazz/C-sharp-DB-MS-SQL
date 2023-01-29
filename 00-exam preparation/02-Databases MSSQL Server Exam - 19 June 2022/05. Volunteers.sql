@@ -8,12 +8,3 @@
 ORDER BY v.[Name] ASC
        , v.AnimalId ASC
        , v.DepartmentId ASC
-
-
-SELECT TOP (5) [Id]
-      ,[Name]
-      ,[PhoneNumber]
-      ,[Address]
-      ,[AnimalId]
-      ,[DepartmentId]
-  FROM [Zoo].[dbo].[Volunteers]
