@@ -5,7 +5,7 @@ AS
 SELECT e.FirstName
      , e.LastName
   FROM Employees AS e
- WHERE e.Salary > @SalaryAboveNumber
+ WHERE e.Salary >= @SalaryAboveNumber
 GO
 
 EXEC usp_GetEmployeesSalaryAboveNumber 48100 
