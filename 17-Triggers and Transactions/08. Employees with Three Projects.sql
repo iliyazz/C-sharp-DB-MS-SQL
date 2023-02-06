@@ -1,5 +1,5 @@
 --17-Triggers and Transactions
---07. Employees with Three Projects
+--08. Employees with Three Projects
 CREATE PROCEDURE usp_AssignProject(@emloyeeId INT, @projectID INT)
 AS
 BEGIN
