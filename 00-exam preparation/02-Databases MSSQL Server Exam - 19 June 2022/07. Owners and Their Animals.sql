@@ -1,7 +1,7 @@
 --07. Owners and Their Animals
   SELECT TOP (5)
          o.[Name] AS [Owner]
-       , COUNT(*) AS CountOfAnimals
+       , COUNT(a.Id) AS CountOfAnimals
     FROM Owners AS o
     JOIN Animals AS a ON  o.Id = a.OwnerId
 GROUP BY o.[Name]
