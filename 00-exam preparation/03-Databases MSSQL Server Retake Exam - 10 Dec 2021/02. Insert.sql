@@ -4,4 +4,3 @@ INSERT INTO Passengers(FullName, Email)
             CONCAT(p.FirstName, p.LastName, '@gmail.com') AS Email
        FROM Pilots as p
       WHERE p.Id BETWEEN 5 AND 15
-   ORDER BY p.Id
